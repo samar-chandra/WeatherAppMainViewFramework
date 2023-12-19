@@ -4,23 +4,31 @@ import SwiftUI
 
 public struct WeatherAppMainViewFramework {
     public struct MainTextField: View {
-        @State var placeholder: String
-        @Binding var text: String
-        public init(placeholder: String, text: Binding<String>) {
-            // State Value
-            self._placeholder = State(initialValue: placeholder)
-            self._text = text
-        }
+        @State var icon: String
+        @State var temp: String
+        @State var time: String
+        
+        @available(iOS 14.0, *)
         public var body: some View {
-            HStack{
-                Image(systemName: "person")
-                    .foregroundColor(.blue)
-                TextField(placeholder, text: $text)
-                    .font(.system(size: 20, weight: .bold, design: .default))
-                    .foregroundColor(.blue)
+            VStack{
+                Text("\(time)")
+                Image(icon)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 50, height: 50)
+                Text(temp + "°")
+                    .font(.title2)
+                    .fontWeight(.bold)
             }
-            .padding()
-            .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.blue, lineWidth: 2))
+            .foregroundColor(.white)
+            .padding(24)
+            .background(RoundedRectangle(cornerRadius: 40)
+                .fill(LinearGradient(colors: [Color("PrimaryColorDark"),Color("PrimaryColor"),Color("PrimaryColorDark")], startPoint: .leading, endPoint: .trailing)))
+            .background(RoundedRectangle(cornerRadius: 40)
+                .fill(Color.black)
+                .opacity(0.5)
+                .shadow(color: .black, radius: 6, x: 0, y: 4)
+                .blur(radius: 1, opaque: false))
         }
     }
 }

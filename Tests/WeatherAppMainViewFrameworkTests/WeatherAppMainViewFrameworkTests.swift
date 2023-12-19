@@ -15,7 +15,7 @@ final class WeatherAppMainViewFrameworkTests: XCTestCase {
         // Defining Test Cases and Test Methods
         // https://developer.apple.com/documentation/xctest/defining_test_cases_and_test_methods
         var body: some View {
-            WeatherAppMainViewFramework.MainTextField(placeholder: "Texting", text: $text)
+            WeatherAppMainViewFramework.MainTextField(icon: "", temp: "", time: "")
         }
         
     }
