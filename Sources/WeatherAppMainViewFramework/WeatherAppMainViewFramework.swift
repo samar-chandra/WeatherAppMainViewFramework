@@ -7,7 +7,7 @@ public struct WeatherAppMainViewFramework {
         @State var icon: String
         @State var temp: String
         @State var time: String
-        init(icon: String, temp: String, time: String) {
+        public init(icon: String, temp: String, time: String) {
             self.icon = icon
             self.temp = temp
             self.time = time
